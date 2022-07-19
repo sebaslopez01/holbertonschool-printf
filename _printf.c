@@ -31,7 +31,7 @@ unsigned int count_space(const char *format, va_list args)
                 i++;
                 break;
             case '\0':
-                return (0);
+                continue;
             }
         }
 
@@ -78,7 +78,7 @@ void fill_string(char *new_str, const char *format, va_list args)
                 i++;
                 break;
             case '\0':
-                return;
+                continue;
             }
         }
 
@@ -112,6 +112,9 @@ int _printf(const char *format, ...)
     va_start(args, format);
 
     count = count_space(format, args);
+
+    if (count == 0)
+        return (0);
 
     va_end(args);
 
