@@ -81,7 +81,6 @@ void fill_string(char *new_str, const char *format, va_list args)
 				continue;
 			}
 		}
-
 		if (i > 0 && format[i - 1] == '%' && (format[i] == 'c' || format[i] == 's'))
 			k++;
 		else
@@ -90,7 +89,6 @@ void fill_string(char *new_str, const char *format, va_list args)
 			k++;
 		}
 	}
-
 	new_str[k] = '\0';
 }
 
