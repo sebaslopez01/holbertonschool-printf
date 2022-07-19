@@ -90,6 +90,9 @@ int _printf(const char *format, ...)
     unsigned int count;
     char *new_str = NULL;
 
+    if (format == NULL)
+        return (0);
+
     va_start(args, format);
 
     count = count_space(format, args);
@@ -107,8 +110,8 @@ int _printf(const char *format, ...)
 
     va_end(args);
 
-    write(1, new_str, count);
-    
+    _write(1, new_str, count);
+
     free(new_str);
 
     return (count);
