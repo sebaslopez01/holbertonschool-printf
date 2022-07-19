@@ -10,6 +10,7 @@
 unsigned int count_space(const char *format, va_list args)
 {
     unsigned int i, count = 0;
+    char *str_a = NULL;
 
     for (i = 0; format[i] != '\0'; i++)
     {
@@ -21,7 +22,10 @@ unsigned int count_space(const char *format, va_list args)
                 va_arg(args, int);
                 continue;
             case 's':
-                count += strlen(va_arg(args, char *)) - 1;
+                str_a = va_arg(args, char *);
+                if (!str_a)
+                    str_a = "(null)";
+                count += strlen(str_a) - 1;
                 continue;
             }
         }
@@ -56,7 +60,7 @@ void fill_string(char *new_str, const char *format, va_list args)
                 continue;
             case 's':
                 str_a = va_arg(args, char *);
-                if (str_a == NULL)
+                if (!str_a)
                     str_a = "(null)";
                 for (j = 0; str_a[j] != '\0'; j++)
                 {
