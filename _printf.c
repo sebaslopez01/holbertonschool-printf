@@ -110,7 +110,7 @@ int _printf(const char *format, ...)
 
     va_end(args);
 
-    _write(1, new_str, count);
+    write(1, new_str, count);
 
     free(new_str);
 
