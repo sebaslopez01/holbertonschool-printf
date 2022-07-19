@@ -15,30 +15,30 @@ unsigned int count_space(const char *format, va_list args)
     for (i = 0; format[i] != '\0'; i++)
     {
 		if (format[i] == '%')
-        {
-        switch (format[i + 1])
-            {
-            case 'c':
-                va_arg(args, int);
-                continue;
-            case 's':
-                str_a = va_arg(args, char *);
-                if (!str_a)
-                    str_a = "(null)";
-                count += strlen(str_a) - 1;
-                continue;
-            case '%':
-                i++;
-                break;
-            case '\0':
-                continue;
-            }
-        }
+		{
+			switch (format[i + 1])
+			{
+			case 'c':
+				va_arg(args, int);
+				continue;
+			case 's':
+				str_a = va_arg(args, char *);
+				if (!str_a)
+					str_a = "(null)";
+				count += strlen(str_a) - 1;
+				continue;
+			case '%':
+				i++;
+				break;
+			case '\0':
+				continue;
+			}
+		}
 
-        count++;
-    }
+		count++;
+	}
 
-    return (count);
+	return (count);
 }
 
 /**
