@@ -23,8 +23,6 @@ unsigned int count_space(const char *format, va_list args)
             case 's':
                 count += strlen(va_arg(args, char *)) - 1;
                 continue;
-            default:
-                continue;
             }
         }
 
@@ -65,12 +63,10 @@ void fill_string(char *new_str, const char *format, va_list args)
                 }
                 k--;
                 continue;
-            default:
-                continue;
             }
         }
 
-        if (i > 0 && format[i - 1] == '%')
+        if (i > 0 && format[i - 1] == '%' && (format[i] == 'c' || format[i] == 's'))
             k++;
         else
         {
