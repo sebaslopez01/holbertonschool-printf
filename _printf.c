@@ -91,8 +91,8 @@ void fill_string(char *new_str, const char *format, va_list args)
 int _printf(const char *format, ...)
 {
     va_list args;
-    unsigned int i, j, count, k = 0;
-    char char_a, *new_str = NULL, *str_a = NULL;
+    unsigned int count;
+    char *new_str = NULL;
 
     va_start(args, format);
 
