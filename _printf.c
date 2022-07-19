@@ -28,6 +28,7 @@ unsigned int count_space(const char *format, va_list args)
                 count += strlen(str_a) - 1;
                 continue;
             case '%':
+                i++;
                 break;
             case '\0':
                 continue;
@@ -74,6 +75,7 @@ void fill_string(char *new_str, const char *format, va_list args)
                 k--;
                 continue;
             case '%':
+                i++;
                 break;
             case '\0':
                 continue;
