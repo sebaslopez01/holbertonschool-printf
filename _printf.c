@@ -56,6 +56,8 @@ void fill_string(char *new_str, const char *format, va_list args)
                 continue;
             case 's':
                 str_a = va_arg(args, char *);
+                if (str_a == NULL)
+                    str_a = "(null)";
                 for (j = 0; str_a[j] != '\0'; j++)
                 {
                     new_str[k] = str_a[j];
