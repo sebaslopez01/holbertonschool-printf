@@ -132,6 +132,6 @@ int _printf(const char *format, ...)
     write(1, new_str, count);
 
     free(new_str);
-
+	
     return (count);
 }
