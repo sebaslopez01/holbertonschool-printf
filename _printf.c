@@ -11,12 +11,12 @@ unsigned int count_space(const char *format, va_list args)
 {
     unsigned int i, count = 0;
     char *str_a = NULL;
-
+    
     for (i = 0; format[i] != '\0'; i++)
     {
-        if (format[i] == '%')
+		if (format[i] == '%')
         {
-            switch (format[i + 1])
+        switch (format[i + 1])
             {
             case 'c':
                 va_arg(args, int);
