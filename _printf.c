@@ -113,9 +113,6 @@ int _printf(const char *format, ...)
 
     count = count_space(format, args);
 
-    if (count == 0)
-        return (0);
-
     va_end(args);
 
     new_str = malloc(sizeof(char) * count + 1);
@@ -129,7 +126,7 @@ int _printf(const char *format, ...)
 
     va_end(args);
 
-    write(1, new_str, count);
+    write(1, new_str, count + 1);
 
     free(new_str);
 
