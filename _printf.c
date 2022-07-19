@@ -9,11 +9,11 @@
  */
 unsigned int count_space(const char *format, va_list args)
 {
-    unsigned int i, count = 0;
-    char *str_a = NULL;
-    
-    for (i = 0; format[i] != '\0'; i++)
-    {
+	unsigned int i, count = 0;
+	char *str_a = NULL;
+
+	for (i = 0; format[i] != '\0'; i++)
+	{
 		if (format[i] == '%')
 		{
 			switch (format[i + 1])
@@ -51,47 +51,47 @@ unsigned int count_space(const char *format, va_list args)
  */
 void fill_string(char *new_str, const char *format, va_list args)
 {
-    unsigned int i, j, k = 0;
-    char *str_a = NULL;
+	unsigned int i, j, k = 0;
+	char *str_a = NULL;
 
-    for (i = 0; format[i] != '\0'; i++)
-    {
-        if (format[i] == '%')
-        {
-            switch (format[i + 1])
-            {
-            case 'c':
-                new_str[k] = (char)va_arg(args, int);
-                continue;
-            case 's':
-                str_a = va_arg(args, char *);
-                if (!str_a)
-                    str_a = "(null)";
-                for (j = 0; str_a[j] != '\0'; j++)
-                {
-                    new_str[k] = str_a[j];
-                    k++;
-                }
-                k--;
-                continue;
-            case '%':
-                i++;
-                break;
-            case '\0':
-                continue;
-            }
-        }
+	for (i = 0; format[i] != '\0'; i++)
+	{
+		if (format[i] == '%')
+		{
+			switch (format[i + 1])
+			{
+			case 'c':
+				new_str[k] = (char)va_arg(args, int);
+				continue;
+			case 's':
+				str_a = va_arg(args, char *);
+				if (!str_a)
+					str_a = "(null)";
+				for (j = 0; str_a[j] != '\0'; j++)
+				{
+					new_str[k] = str_a[j];
+					k++;
+				}
+				k--;
+				continue;
+			case '%':
+				i++;
+				break;
+			case '\0':
+				continue;
+			}
+		}
 
-        if (i > 0 && format[i - 1] == '%' && (format[i] == 'c' || format[i] == 's'))
-            k++;
-        else
-        {
-            new_str[k] = format[i];
-            k++;
-        }
-    }
+		if (i > 0 && format[i - 1] == '%' && (format[i] == 'c' || format[i] == 's'))
+			k++;
+		else
+		{
+			new_str[k] = format[i];
+			k++;
+		}
+	}
 
-    new_str[k] = '\0';
+	new_str[k] = '\0';
 }
 
 /**
@@ -102,36 +102,36 @@ void fill_string(char *new_str, const char *format, va_list args)
  */
 int _printf(const char *format, ...)
 {
-    va_list args;
-    unsigned int count;
-    char *new_str = NULL;
+	va_list args;
+	unsigned int count;
+	char *new_str = NULL;
 
-    if (format == NULL)
-        return (-1);
+	if (format == NULL)
+		return (-1);
 
-    va_start(args, format);
+	va_start(args, format);
 
-    count = count_space(format, args);
+	count = count_space(format, args);
 
-    if (count == 0)
-        return (-1);
+	if (count == 0)
+		return (-1);
 
-    va_end(args);
+	va_end(args);
 
-    new_str = malloc(sizeof(char) * count + 1);
+	new_str = malloc(sizeof(char) * count + 1);
 
-    if (!new_str)
-        return (0);
+	if (!new_str)
+		return (0);
 
-    va_start(args, format);
+	va_start(args, format);
 
-    fill_string(new_str, format, args);
+	fill_string(new_str, format, args);
 
-    va_end(args);
+	va_end(args);
 
-    write(1, new_str, count);
+	write(1, new_str, count);
 
-    free(new_str);
-	
-    return (count);
+	free(new_str);
+
+	return (count);
 }
