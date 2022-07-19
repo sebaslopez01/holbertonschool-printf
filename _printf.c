@@ -114,7 +114,7 @@ int _printf(const char *format, ...)
     count = count_space(format, args);
 
     if (count == 0)
-        return (0);
+        return (-1);
 
     va_end(args);
 
