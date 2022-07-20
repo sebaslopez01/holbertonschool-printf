@@ -43,4 +43,3 @@ void op_char(char *buffer, va_list args, int *count)
 	buffer[*count] = c;
 	(*count)++;
 }
-}
