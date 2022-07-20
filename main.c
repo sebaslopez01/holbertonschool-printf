@@ -11,10 +11,10 @@ int main(void)
 {
 	int i, j;
 
-	i = _printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
+	i = _printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 99", " Please wait", '\n');
 	printf("%d\n", i);
 
-	j = printf("%!\n");
+	j = printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 99", " Please wait", '\n');
 	printf("%d\n", j);
 
 	return (0);

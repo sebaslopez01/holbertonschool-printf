@@ -8,7 +8,7 @@
  */
 int _printf(const char *format, ...)
 {
-	va_list args;
+	va_list args; 
 	int i, count = 0;
 	void (*op_func)(char *, va_list, int *);
 	char *buffer = NULL;
@@ -18,9 +18,7 @@ int _printf(const char *format, ...)
 	buffer = malloc(1024);
 	if (!buffer)
 		return (0);
-
 	va_start(args, format);
-
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
@@ -31,8 +29,13 @@ int _printf(const char *format, ...)
 			if (op_func == NULL)
 			{
 				buffer[count] = format[i];
-				buffer[count + 1] = format[i + 1];
-				count += 2;
+				if (format[i + 1] != '%')
+				{
+					buffer[count + 1] = format[i + 1];
+					count += 2;
+				}
+				else
+					count++;
 			}
 			else
 				op_func(buffer, args, &count);
