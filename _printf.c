@@ -30,8 +30,9 @@ int _printf(const char *format, ...)
 			op_func = get_op_func(format[i + 1]);
 			if (op_func == NULL)
 			{
-				buffer[count] = format[i + 1];
-				count++;
+				buffer[count] = format[i];
+				buffer[count + 1] = format[i + 1];
+				count += 2;
 			}
 			else
 				op_func(buffer, args, &count);
