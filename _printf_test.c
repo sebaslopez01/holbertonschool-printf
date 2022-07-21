@@ -10,6 +10,7 @@
 unsigned int count_space(const char *format, va_list args)
 {
 	unsigned int i, count = 0;
+	int num;
 	char *str_a = NULL;
 
 	for (i = 0; format[i] != '\0'; i++)
@@ -27,6 +28,16 @@ unsigned int count_space(const char *format, va_list args)
 					str_a = "(null)";
 				count += strlen(str_a) - 1;
 				continue;
+			case 'd':
+			case 'i':
+				num = va_arg(args, int);
+				if (num < 0)
+				{
+					count++;
+					num *= -1;
+				}
+				count += (int)floor(log(num) / log(10));
+				continue;
 			case '%':
 				i++;
 				break;
@@ -34,10 +45,8 @@ unsigned int count_space(const char *format, va_list args)
 				continue;
 			}
 		}
-
 		count++;
 	}
-
 	return (count);
 }
 

@@ -1,6 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include <math.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdarg.h>
@@ -31,5 +32,9 @@ void (*get_op_func(char c))(char *, va_list, int *);
 void op_string(char *buffer, va_list args, int *count);
 
 void op_char(char *buffer, va_list args, int *count);
+
+void op_number(char *buffer, va_list args, int *count);
+
+char *itoa(int num, char *buffer, int base);
 
 #endif /* MAIN_H */

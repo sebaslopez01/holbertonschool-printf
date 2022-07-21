@@ -12,6 +12,8 @@ void (*get_op_func(char c))(char *, va_list, int *)
 	format_t ops[] = {
 		{"c", op_char},
 		{"s", op_string},
+		{"d", op_number},
+		{"i", op_number},
 		{NULL, NULL}
 	};
 
