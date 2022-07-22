@@ -36,7 +36,8 @@ unsigned int count_space(const char *format, va_list args)
 					count++;
 					num *= -1;
 				}
-				count += (int)floor(log(num) / log(10));
+				for (; num != 0; count++)
+					num /= 10;
 				continue;
 			case '%':
 				i++;

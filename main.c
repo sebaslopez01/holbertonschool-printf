@@ -9,13 +9,8 @@
  */
 int main(void)
 {
-	int i, j;
+	_printf("Num: %d, Str: %s, Char: %c\n", -2645, "HEllo", 'a');
 
-	i = _printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 99", " Please wait", '\n');
-	printf("%d\n", i);
-
-	j = printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 99", " Please wait", '\n');
-	printf("%d\n", j);
 
 	return (0);
 }
