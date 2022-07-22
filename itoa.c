@@ -30,7 +30,7 @@ char *itoa(int num, char *buffer, int base)
 
 	while (temp_num != 0)
 	{
-		digit = temp_num % 10;
+		digit = temp_num % base;
 
 		if (digit < 0)
 			digit *= -1;
