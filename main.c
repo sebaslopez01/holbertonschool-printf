@@ -9,8 +9,13 @@
  */
 int main(void)
 {
-	_printf("Num: %d, Str: %s, Char: %c\n", -2645, "HEllo", 'a');
+	int len, len2;
 
+	len = _printf("%i + %i = %i\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+	len2 = printf("%i + %i = %i\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+
+	printf("Len _printf: %d\n", len);
+	printf("Len printf: %d\n", len2);
 
 	return (0);
 }

@@ -27,12 +27,13 @@ char *itoa(int num, char *buffer, int base)
 		buffer[count] = '\0';
 		return (buffer);
 	}
-	if (temp_num < 0)
-		temp_num *= -1;
 
 	while (temp_num != 0)
 	{
 		digit = temp_num % 10;
+
+		if (digit < 0)
+			digit *= -1;
 
 		if (digit >= 10)
 			buffer[count++] = (digit - 10) + 'A';
