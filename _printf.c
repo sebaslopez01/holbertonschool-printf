@@ -15,7 +15,8 @@ int _printf(const char *format, ...)
 
 	if (format == NULL)
 		return (-1);
-	va_start(args, formar = malloc(sizeof(char) * count_space(format, args) + 1);
+	va_start(args, format);
+	buffer = malloc(sizeof(char) * count_space(format, args) + 1);
 	va_end(args);
 	if (!buffer)
 		return (0);
