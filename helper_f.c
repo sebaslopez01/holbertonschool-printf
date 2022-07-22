@@ -154,3 +154,38 @@ void op_unsigned(char *buffer, va_list args, int *count)
 
 	free(str);
 }
+
+
+/**
+ * op_octal - Copies an unsigned octal to the buffer
+ * @buffer: Buffer to copy characters
+ * @args: Arguments of type unsigned int
+ * @count: Quantity to affect
+ *
+ * Return: void
+ */
+void op_octal(char *buffer, va_list args, int *count)
+{
+	unsigned int num, num_temp, i, num_digits = 0;
+	char *str = NULL;
+
+	num = va_arg(args, unsigned int);
+	num_temp = num;
+
+	for (; num_temp != 0; num_digits++)
+		num_temp /= 8;
+
+	str = malloc(sizeof(char) * num_digits + 1);
+	if (!str)
+		return;
+
+	itoa(num, str, 8);
+
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		buffer[*count] = str[i];
+		(*count)++;
+	}
+
+	free(str);
+}

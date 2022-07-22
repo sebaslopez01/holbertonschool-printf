@@ -95,3 +95,22 @@ unsigned int op_unsigned_count(va_list args)
 
 	return (count);
 }
+
+
+/**
+ * op_octal_count - Count space needed for an unsigned octal number
+ * @args: Argument to be passed of type unsigned int
+ *
+ * Return: Space needed
+ */
+unsigned int op_octal_count(va_list args)
+{
+	unsigned int num, count = 0;
+
+	num = va_arg(args, unsigned int);
+
+	for (; num != 0; count++)
+		num /= 8;
+
+	return (count);
+}
