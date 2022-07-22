@@ -37,16 +37,16 @@ using the options ```-Wall -Werror -Wextra -pedantic -std=gnu89```
 * ```va_arg``` (```man 3 va_arg```)
 
 ## Examples
-**Integer**
+#### Integer
  * Intput: ```_printf("Unsigned octal:[%o]\n", ui);```
  * Output: ```Unsigned octal:[20000001777]```
-**Decimal**
+#### Decimal
  * Intput: ```_printf("Negative:[%d]\n", -762534);```
  * Output: ```Negative:[-762534]```
-**Character**
+#### Character
  * Intput: ```_printf("Character:[%c]\n", 'H');```
  * Output: ```Character:[H]```
-**String**
+#### String
  * Intput: ```_printf("String:[%s]\n", "I am a string !");```
  * Output: ```String:[I am a string !]```
 ## Testings
@@ -75,5 +75,5 @@ using the options ```-Wall -Werror -Wextra -pedantic -std=gnu89```
 16. All above options should work well together.
 
 ## Authors:
-Sebastián López - sebaslopez01
-Alexander Ayala - Alexander-Ayala
+* Sebastián López - sebaslopez01
+* Alexander Ayala - Alexander-Ayala
