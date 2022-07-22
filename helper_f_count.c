@@ -28,9 +28,8 @@ unsigned int op_string_count(va_list args)
 	str = va_arg(args, char *);
 	if (str == NULL)
 		str = "(null)";
-
-	while (str[count] != '\0')
-		count++;
+	
+	count = _strlen(str);
 
 	return (count);
 }
@@ -49,11 +48,7 @@ unsigned int op_number_count(va_list args)
 
 	num = va_arg(args, int);
 
-	if (num < 0)
-		count++;
-
-	for (; num != 0; count++)
-		num /= 10;
+	count = count_digits(num, 10);
 
 	return (count);
 }
@@ -71,8 +66,7 @@ unsigned int op_binary_count(va_list args)
 
 	num = va_arg(args, unsigned int);
 
-	for (; num != 0; count++)
-		num /= 2;
+	count = count_digits(num, 2);
 
 	return (count);
 }
@@ -90,27 +84,7 @@ unsigned int op_unsigned_count(va_list args)
 
 	num = va_arg(args, unsigned int);
 
-	for (; num != 0; count++)
-		num /= 10;
-
-	return (count);
-}
-
-
-/**
- * op_octal_count - Count space needed for an unsigned octal number
- * @args: Argument to be passed of type unsigned int
- *
- * Return: Space needed
- */
-unsigned int op_octal_count(va_list args)
-{
-	unsigned int num, count = 0;
-
-	num = va_arg(args, unsigned int);
-
-	for (; num != 0; count++)
-		num /= 8;
+	count = count_digits(num, 10);
 
 	return (count);
 }

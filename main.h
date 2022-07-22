@@ -56,6 +56,10 @@ void op_unsigned(char *buffer, va_list args, int *count);
 
 void op_octal(char *buffer, va_list args, int *count);
 
+void op_hexadecimal(char *buffer, va_list args, int *count);
+
+void op_hexadecimal_l(char *buffer, va_list args, int *count);
+
 unsigned int (*get_op_func_space(char c))(va_list);
 
 unsigned int op_char_count(va_list args);
@@ -70,8 +74,20 @@ unsigned int op_unsigned_count(va_list args);
 
 unsigned int op_octal_count(va_list args);
 
+unsigned int op_hexadecimal_count(va_list args);
+
+unsigned int count_digits(long int num, int base);
+
 char *itoa(long int num, char *buffer, int base);
 
+char *parse_unsigned_number(unsigned int num, char *str, int base);
+
+int _strlen(char *str);
+
 void reverse_string(char *str);
+
+void _strcpy(char *dest, char *origin, int *count);
+
+void string_tolower(char *str);
 
 #endif /* MAIN_H */

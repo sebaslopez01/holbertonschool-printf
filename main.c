@@ -12,13 +12,13 @@ int main(void)
 {
 	unsigned int n = 1024;
 
-	/* int len;*/
+	int len;
 
-	/* len = _printf("Binary: %b, Num: %d, Str: %s, Char: %c\n", 26, 4556, "HEllo", 'a'); */
+	len = _printf("Binary: %b, Num: %d, Str: %s, Char: %c\n", 26, 4556, "HEllo", 'a');
 
 	_printf("%o\n", n);
 
-	/* printf("Len _printf: %d\n", len); */
+	printf("Len _printf: %d\n", len);
 
 	return (0);
 }

@@ -1,22 +1,48 @@
 #include "main.h"
 
-/**
- * reverse_string - Reverses the order of an array of chars
- * @str: Array of chars to reverse
- *
- * Return: void
- */
-void reverse_string(char *str)
-{
-	int i, len = strlen(str);
-	char temp;
 
-	for (i = 0; i < len / 2; i++)
-	{
-		temp = str[len - i - 1];
-		str[len - i - 1] = str[i];
-		str[i] = temp;
-	}
+/**
+ * count_digits - Count number of digits of a number
+ * @num: Number to count
+ * @base: Base to use
+ *
+ * Return: Number of digits
+ */
+unsigned int count_digits(long int num, int base)
+{
+	unsigned int num_digits = 0;
+
+	if (num < 0)
+		num_digits++;
+
+	for (; num != 0; num_digits++)
+		num /= base;
+
+	return (num_digits);
+}
+
+
+/**
+ * parse_unsigned_number - Converts an unsigned number to string
+ * @num: Num to parse
+ * @str: String to save parsed number
+ * @base: Base to use
+ *
+ * Return: Number converted to strin
+ */
+char *parse_unsigned_number(unsigned int num, char *str, int base)
+{
+	unsigned int num_digits = count_digits(num, base);
+
+	str = malloc(sizeof(char) * num_digits + 1);
+	if (!str)
+		return (NULL);
+
+	str = itoa(num, str, base);
+	if (!str)
+		return (NULL);
+
+	return (str);
 }
 
 
