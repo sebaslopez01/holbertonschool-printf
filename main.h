@@ -50,6 +50,8 @@ void op_char(char *buffer, va_list args, int *count);
 
 void op_number(char *buffer, va_list args, int *count);
 
+void op_binary(char *buffer, va_list args, int *count);
+
 unsigned int (*get_op_func_space(char c))(va_list);
 
 unsigned int op_char_count(va_list args);
@@ -57,6 +59,8 @@ unsigned int op_char_count(va_list args);
 unsigned int op_string_count(va_list args);
 
 unsigned int op_number_count(va_list args);
+
+unsigned int op_binary_count(va_list args);
 
 char *itoa(int num, char *buffer, int base);
 

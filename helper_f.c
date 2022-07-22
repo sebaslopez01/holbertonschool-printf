@@ -84,3 +84,38 @@ void op_number(char *buffer, va_list args, int *count)
 
 	free(str);
 }
+
+
+/**
+ * op_binary - Copies a binary number to buffer
+ * @buffer: Buffer to copy characters
+ * @args: Arguments of type int
+ * @count: Quantity to affect
+ *
+ * Return: void
+ */
+void op_binary(char *buffer, va_list args, int *count)
+{
+	unsigned int num, num_temp, i, num_digits = 0;
+	char *str = NULL;
+
+	num = (unsigned int)va_arg(args, int);
+	num_temp = num;
+
+	for (; num_temp != 0; num_digits++)
+		num_temp /= 2;
+
+	str = malloc(sizeof(char) * num_digits + 1);
+	if (!str)
+		return;
+
+	itoa(num, str, 2);
+
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		buffer[*count] = str[i];
+		(*count)++;
+	}
+
+	free(str);
+}
