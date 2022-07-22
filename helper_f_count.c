@@ -46,7 +46,7 @@ unsigned int op_number_count(va_list args)
 {
 	unsigned int count = 0;
 	int num;
-	
+
 	num = va_arg(args, int);
 
 	if (num < 0)

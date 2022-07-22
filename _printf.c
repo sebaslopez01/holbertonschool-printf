@@ -6,7 +6,7 @@
  * @format: Format to be used to fill the buffer
  * @args: Arguments to be use in the directives
  * @buffer: Buffer to fill
- * 
+ *
  * Return: Count of bytes used to fullfill the buffer
  */
 int _printf_helper(const char *format, va_list args, char *buffer)
@@ -64,15 +64,15 @@ int _printf(const char *format, ...)
 	va_end(args);
 
 	va_start(args, format);
-	
+
 	count = _printf_helper(format, args, buffer);
 	if (count == 0)
 		return (-1);
 
 	va_end(args);
-	
+
 	write(1, buffer, count);
-	
+
 	free(buffer);
 
 	return (count);

@@ -45,6 +45,14 @@ void op_char(char *buffer, va_list args, int *count)
 }
 
 
+/**
+ * op_number - Copies a number to buffer
+ * @buffer: Buffer to copy characters
+ * @args: Arguments of type int
+ * @count: Quantity to affect
+ *
+ * Return: void
+ */
 void op_number(char *buffer, va_list args, int *count)
 {
 	int num, num_temp, i, num_digits = 0;
@@ -61,7 +69,7 @@ void op_number(char *buffer, va_list args, int *count)
 
 	for (; num_temp != 0; num_digits++)
 		num_temp /= 10;
-	
+
 	str = malloc(sizeof(char) * num_digits + 1);
 	if (!str)
 		return;

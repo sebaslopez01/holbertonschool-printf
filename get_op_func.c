@@ -27,6 +27,12 @@ void (*get_op_func(char c))(char *, va_list, int *)
 }
 
 
+/**
+ * get_op_func_space - Compares if a character is in the format_c struct
+ * @c: Character to compare
+ *
+ * Return: A pointer to a function of type unsigned int (*f)(va_list)
+ */
 unsigned int (*get_op_func_space(char c))(va_list)
 {
 	int i;
