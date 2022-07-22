@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "main.h"
 
+
 /**
  * main - Entry point
  *
@@ -9,11 +10,15 @@
  */
 int main(void)
 {
-	int len;
+	unsigned int n = -354;
 
-	len = _printf("Binary: %b, Num: %d, Str: %s, Char: %c\n", 26, 4556, "HEllo", 'a');
+	/* int len;*/
 
-	printf("Len _printf: %d\n", len);
+	/* len = _printf("Binary: %b, Num: %d, Str: %s, Char: %c\n", 26, 4556, "HEllo", 'a'); */
+
+	_printf("%u\n", n);
+
+	/* printf("Len _printf: %d\n", len); */
 
 	return (0);
 }

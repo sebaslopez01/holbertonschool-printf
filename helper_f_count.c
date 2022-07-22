@@ -60,7 +60,7 @@ unsigned int op_number_count(va_list args)
 
 
 /**
- * op_binary_count - Count space neede for a binary number
+ * op_binary_count - Count space needed for a binary number
  * @args: Argument to be passed of type int
  *
  * Return: Space needed
@@ -69,10 +69,29 @@ unsigned int op_binary_count(va_list args)
 {
 	unsigned int num, count = 0;
 
-	num = (unsigned int)(va_arg(args, int));
+	num = va_arg(args, unsigned int);
 
 	for (; num != 0; count++)
 		num /= 2;
+
+	return (count);
+}
+
+
+/**
+ * op_unsigned_count - Count space needed for an unsigned number
+ * @args: Argument to be passed of type unsigned int
+ *
+ * Return: Space needed
+ */
+unsigned int op_unsigned_count(va_list args)
+{
+	unsigned int num, count = 0;
+
+	num = va_arg(args, unsigned int);
+
+	for (; num != 0; count++)
+		num /= 10;
 
 	return (count);
 }

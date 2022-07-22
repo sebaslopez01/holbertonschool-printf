@@ -15,6 +15,7 @@ void (*get_op_func(char c))(char *, va_list, int *)
 		{"d", op_number},
 		{"i", op_number},
 		{"b", op_binary},
+		{"u", op_unsigned},
 		{NULL, NULL}
 	};
 
@@ -43,6 +44,7 @@ unsigned int (*get_op_func_space(char c))(va_list)
 		{"d", op_number_count},
 		{"i", op_number_count},
 		{"b", op_binary_count},
+		{"u", op_unsigned_count},
 		{NULL, NULL}
 	};
 
