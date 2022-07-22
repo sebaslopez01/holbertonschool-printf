@@ -1,53 +1,86 @@
-
-TH man _printf "Jul 21, 2022" "_printf man page"
+.\” Manual page for _printf function.
+.TH man _printf "Jul 21, 2022" "_printf man page"
 .SH NAME
-.B _printf
+ _printf -- formatted output conversion and print data.
 .SH SYNOPSIS
-.B #include "main.h"
-.sp Prototype: int _printf(const char *format, ...);
+.nf
+.BI  #include "main.h"
+.PP
+.BI Prototype: int _printf(const char *format, ...);
+.PP
+.BI int _printf_helper(const char *format, va_list args, char *buffer);
+.BI unsigned int count_space(const char *format, va_list args);
+.BI void (*get_op_func(char c))(char *, va_list, int *);
+.BI void op_string(char *buffer, va_list args, int *count);
+.BI void op_char(char *buffer, va_list args, int *count);
+.BI void op_number(char *buffer, va_list args, int *count);
+.BI void op_binary(char *buffer, va_list args, int *count);
+.BI unsigned int (*get_op_func_space(char c))(va_list);
+.BI unsigned int op_char_count(va_list args);
+.BI unsigned int op_string_count(va_list args);
+.BI unsigned int op_number_count(va_list args);
+.BI unsigned int op_binary_count(va_list args);
+.BI char *itoa(int num, char *buffer, int base);
+.BI void reverse_string(char *str);
+
+.PP
 .SH DESCRIPTION
-.B _printf
-- Is a function that produces output according to a format using the prototype: int _printf(const char *format, ...); returning the number of characters printed but excluding the null byte used to end the output to strings, The format string consists of zero or more directives
-.B Format string
-zero or more are the directives that make up the string format that are compiled in the output, but not the %, it is also composed of conversion specifiers, its result is 0 or more arguments, in the conversion specifications it is assigned with the character % and ending with conversion specifier.
-.B s
+.BI _printf()
+ Is a function that produces output according to a format using the prototype: int _printf(const char *format, ...).
+
+.SS Return Value
+Returning the number of characters printed but excluding the null byte used to end the output to strings, The format string consists of zero or more directives.
+
+.SS Format String
+The string specifying how subsequent arguments to the output are converted where zero or more are the directives that make up the string format that are compiled into the output, but not the %, is also made up of conversion specifiers, returns 0 or more arguments, in the conversion specifications it is assigned the character % and ending with the conversion specifier.
+
+
+.SS Conversion Specifiers
+The conversion specifiers and their meanings are:
+.TP
 .B c
-.B i and d
+.R The \fIint\fR changes to an unsigned character, then the resulting character is written
+   
+.TP
+.B s
+.R On arrival of a const \fIchar*\fR argument, a pointer to a string, all characters are written to each byte, up to the null byte, but that null byte is not included.
+.TP
+.B d, i
+.R The \fIint\fR argument is converted to signed decimal notation.
+.TP
+.B %
+A '%' is written but no argument is converted. The complete version specification is \fI%%\fR'
+.TP
+.B o, u, x
+.R The \fIint\fR argument is converted to base 8 numbers or octal \fIo\fR, base 10 numbers or decimal \fIu\fR, base 16 numbers or hexadecimal \fIx\fR.
+.TP
+.B b
+The unsigned int argument is converted to binary notation \fIb\fR.
+.TP
+.B p
+Address is printed in hexadecimal.
+.TP
+.B r
+Prints a string in reverse.
+.TP
+.B R
+Prints a string converted to rot13
 
+.SH NOTES
+.R This _printf project is a project emulating the printf function in C, by students Sebastián López and Alexander Ayala from Holberton School cohort 18. 
 
-.SH EXAMPLES
+.SH EXAMPLE
+.R To print the the string and its length in decimal.
 
-.B Integer
-- Intput: ```_printf("Unsigned octal:[%o]\n", ui);```
-- Output: ```Unsigned octal:[20000001777]```
-.B Decimal
-- Intput: ```_printf("Negative:[%d]\n", -762534);```
-- Output: ```Negative:[-762534]```
-.B Character
-- Intput: ```_printf("Character:[%c]\n", 'H');```
-- Output: ```Character:[H]```
-.B String
-- Intput: ```_printf("String:[%s]\n", "I am a string !");```
-- Output: ```String:[I am a string !]```
+        int length;
+        length = _printf("%s", "Hello World, 1, %, Holberton")
+        _printf("contains %d characters", length);
+        return (0);
 
-.SH OPTIONS
-The nuseradd does not take any options. However, you can supply username.
 .SH SEE ALSO
-useradd(8), passwd(5), nuseradd.debian(8) 
-.SH BUGS
-Without errors.
-.SH AUTHOR
-
-
-https://www.cyberciti.biz/faq/linux-unix-creating-a-manpage/
-
-1	Executable shell commands
-2
-System calls (functions provided by the kernel)
-3	Library calls (functions within program libraries)
-4	Special files (usually found in /dev)
-5	File formats and conventions eg /etc/passwd
-6	Games
-7	Miscellaneous (including macro packages and conventions), e.g. man(7), groff(7)
-8	System administration commands (usually only for root)
-9	Kernel routines [Non standard]
+.R printf(3)
+.PP
+Full documentation at: <https://www.gnu.org/software/coreutils/printf> or available locally via: info '(coreutils) printf invocation'
+.SH AUTHORS
+.B Sebastián López
+.B Alexander Ayala
