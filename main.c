@@ -10,7 +10,7 @@
  */
 int main(void)
 {
-	unsigned int n = -354;
+	unsigned int n = -1024;
 
 	/* int len;*/
 

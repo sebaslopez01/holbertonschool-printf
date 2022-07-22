@@ -66,7 +66,7 @@ unsigned int op_binary_count(va_list args);
 
 unsigned int op_unsigned_count(va_list args);
 
-char *itoa(int num, char *buffer, int base);
+char *itoa(long int num, char *buffer, int base);
 
 void reverse_string(char *str);
 

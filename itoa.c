@@ -28,9 +28,10 @@ void reverse_string(char *str)
  *
  * Return: Number converted to string
  */
-char *itoa(int num, char *buffer, int base)
+char *itoa(long int num, char *buffer, int base)
 {
-	int digit, count = 0, temp_num = num;
+	long int digit, temp_num = num;
+	int count = 0;
 
 	if (base < 2 || base > 32)
 		return (buffer);
