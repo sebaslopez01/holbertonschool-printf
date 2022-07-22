@@ -9,13 +9,13 @@
  */
 int main(void)
 {
-	int i, j;
+	int len, len2;
 
-	i = _printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 99", " Please wait", '\n');
-	printf("%d\n", i);
+	len = _printf("%i + %i = %i\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+	len2 = printf("%i + %i = %i\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
 
-	j = printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 99", " Please wait", '\n');
-	printf("%d\n", j);
+	printf("Len _printf: %d\n", len);
+	printf("Len printf: %d\n", len2);
 
 	return (0);
 }

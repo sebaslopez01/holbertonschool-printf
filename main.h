@@ -1,7 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include <math.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdarg.h>
@@ -36,5 +35,7 @@ void op_char(char *buffer, va_list args, int *count);
 void op_number(char *buffer, va_list args, int *count);
 
 char *itoa(int num, char *buffer, int base);
+
+void reverse_string(char *str);
 
 #endif /* MAIN_H */

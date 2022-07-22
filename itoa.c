@@ -1,38 +1,54 @@
 #include "main.h"
-#include <math.h>
+
+
+void reverse_string(char *str)
+{
+	int i, len = strlen(str);
+	char temp;
+
+	for (i = 0; i < len / 2; i++)
+	{
+		temp = str[len - i - 1];
+		str[len - i - 1] = str[i];
+		str[i] = temp;
+	}
+}
+
 
 char *itoa(int num, char *buffer, int base)
 {
-	int base_val, num_val, curr = 0, num_digits = 0;
+	int digit, count = 0, temp_num = num;
 
+	if (base < 2 || base > 32)
+		return (buffer);
 	if (num == 0)
 	{
-		buffer[curr++] = '0';
-		buffer[curr] = '\0';
+		buffer[count++] = '0';
+		buffer[count] = '\0';
 		return (buffer);
 	}
-	if (num < 0)
-	{
-		if (base == 10)
-		{
-			num_digits++;
-			buffer[curr] = '-';
-			curr++;
-			num *= -1;
-		}
-		else
-			return (NULL);
-	}
-	num_digits += (int)floor(log(num) / log(base)) + 1;
 
-	while (curr < num_digits)
+	while (temp_num != 0)
 	{
-		base_val = (int)pow(base, num_digits - 1 - curr);
-		num_val = num / base_val;
-		buffer[curr] = num_val + '0';
-		curr++;
-		num -= base_val * num_val;
+		digit = temp_num % base;
+
+		if (digit < 0)
+			digit *= -1;
+
+		if (digit >= 10)
+			buffer[count++] = (digit - 10) + 'A';
+		else
+			buffer[count++] = digit + '0';
+
+		temp_num /= base;
 	}
-	buffer[curr] = '\0';
+
+	if (num < 0 && base == 10)
+		buffer[count++] = '-';
+
+	buffer[count] = '\0';
+
+	reverse_string(buffer);
+
 	return (buffer);
 }

@@ -47,25 +47,26 @@ void op_char(char *buffer, va_list args, int *count)
 
 void op_number(char *buffer, va_list args, int *count)
 {
-	int n, n_temp, i, num_digits = 0;
+	int num, num_temp, i, num_digits = 0;
 	char *str = NULL;
 
-	n = va_arg(args, int);
-	n_temp = n;
+	num = va_arg(args, int);
+	num_temp = num;
 
-	if (n_temp < 0)
+	if (num_temp < 0)
 	{
 		num_digits++;
-		n_temp *= -1;
+		num_temp *= -1;
 	}
-	
-	num_digits += (int)floor(log(n_temp) / log(10)) + 1;
 
+	for (; num_temp != 0; num_digits++)
+		num_temp /= 10;
+	
 	str = malloc(sizeof(char) * num_digits + 1);
 	if (!str)
 		return;
 
-	itoa(n, str, 10);
+	itoa(num, str, 10);
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
