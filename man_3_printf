@@ -1,0 +1,53 @@
+
+TH man _printf "Jul 21, 2022" "_printf man page"
+.SH NAME
+.B _printf
+.SH SYNOPSIS
+.B #include "main.h"
+.sp Prototype: int _printf(const char *format, ...);
+.SH DESCRIPTION
+.B _printf
+- Is a function that produces output according to a format using the prototype: int _printf(const char *format, ...); returning the number of characters printed but excluding the null byte used to end the output to strings, The format string consists of zero or more directives
+.B Format string
+zero or more are the directives that make up the string format that are compiled in the output, but not the %, it is also composed of conversion specifiers, its result is 0 or more arguments, in the conversion specifications it is assigned with the character % and ending with conversion specifier.
+.B s
+.B c
+.B i and d
+
+
+.SH EXAMPLES
+
+.B Integer
+- Intput: ```_printf("Unsigned octal:[%o]\n", ui);```
+- Output: ```Unsigned octal:[20000001777]```
+.B Decimal
+- Intput: ```_printf("Negative:[%d]\n", -762534);```
+- Output: ```Negative:[-762534]```
+.B Character
+- Intput: ```_printf("Character:[%c]\n", 'H');```
+- Output: ```Character:[H]```
+.B String
+- Intput: ```_printf("String:[%s]\n", "I am a string !");```
+- Output: ```String:[I am a string !]```
+
+.SH OPTIONS
+The nuseradd does not take any options. However, you can supply username.
+.SH SEE ALSO
+useradd(8), passwd(5), nuseradd.debian(8) 
+.SH BUGS
+Without errors.
+.SH AUTHOR
+
+
+https://www.cyberciti.biz/faq/linux-unix-creating-a-manpage/
+
+1	Executable shell commands
+2
+System calls (functions provided by the kernel)
+3	Library calls (functions within program libraries)
+4	Special files (usually found in /dev)
+5	File formats and conventions eg /etc/passwd
+6	Games
+7	Miscellaneous (including macro packages and conventions), e.g. man(7), groff(7)
+8	System administration commands (usually only for root)
+9	Kernel routines [Non standard]
