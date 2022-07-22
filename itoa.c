@@ -1,6 +1,11 @@
 #include "main.h"
 
-
+/**
+ * reverse_string - Reverses the order of an array of chars
+ * @str: Array of chars to reverse
+ *
+ * Return: void
+ */
 void reverse_string(char *str)
 {
 	int i, len = strlen(str);
@@ -15,6 +20,14 @@ void reverse_string(char *str)
 }
 
 
+/**
+ * itoa - Fill a buffer of chars with an int value
+ * @num: Number to convert to a string
+ * @buffer: Buffer to fill
+ * @base: Base to use for the conversion
+ *
+ * Return: Number converted to string
+ */
 char *itoa(int num, char *buffer, int base)
 {
 	int digit, count = 0, temp_num = num;

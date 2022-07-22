@@ -25,3 +25,24 @@ void (*get_op_func(char c))(char *, va_list, int *)
 
 	return (NULL);
 }
+
+
+unsigned int (*get_op_func_space(char c))(va_list)
+{
+	int i;
+	format_c ops[] = {
+		{"c", op_char_count},
+		{"s", op_string_count},
+		{"d", op_number_count},
+		{"i", op_number_count},
+		{NULL, NULL}
+	};
+
+	for (i = 0; ops[i].op != NULL; i++)
+	{
+		if (*ops[i].op == c)
+			return (ops[i].f);
+	}
+
+	return (NULL);
+}
