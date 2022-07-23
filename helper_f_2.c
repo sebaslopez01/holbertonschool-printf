@@ -86,8 +86,8 @@ void op_hexadecimal_l(char *buffer, va_list args, int *count)
 
 /**
  * op_string_s - Copies an string without its non printable characters
- * with \x followed byt the ASCII code value in hexadecimal
- * @buffer: BUffer to copy characters
+ * with \x followed by the ASCII code value in hexadecimal
+ * @buffer: Buffer to copy characters
  * @args: Arguments of type char * or hexadecimal
  * @count: Quantity to affect
  *
@@ -120,4 +120,33 @@ void op_string_s(char *buffer, va_list args, int *count)
 
 		buffer[(*count)++] = str[i];
 	}
+}
+
+
+/**
+ * op_address - Copies an address value in hexadecimal to the buffer
+ * @buffer: Buffer to copy characters
+ * @args: Arguments of type unsigned long int
+ * @count: Quantity to affect
+ *
+ * Return: void
+ */
+void op_address(char *buffer, va_list args, int *count)
+{
+	unsigned long int address;
+	char *str = NULL;
+
+	address = va_arg(args, unsigned long int);
+
+	buffer[(*count)++] = '0';
+	buffer[(*count)++] = 'x';
+
+	str = parse_unsigned_number(address, str, 16);
+
+	if (!str)
+		return;
+
+	_strcpy(buffer, str, count);
+
+	free(str);
 }

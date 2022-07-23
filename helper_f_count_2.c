@@ -9,7 +9,7 @@
  */
 unsigned int op_octal_count(va_list args)
 {
-	unsigned int num, count = 0;
+	unsigned int num, count;
 
 	num = va_arg(args, unsigned int);
 
@@ -27,7 +27,7 @@ unsigned int op_octal_count(va_list args)
  */
 unsigned int op_hexadecimal_count(va_list args)
 {
-	unsigned int num, count = 0;
+	unsigned int num, count;
 
 	num = va_arg(args, unsigned int);
 
@@ -59,6 +59,25 @@ unsigned int op_string_s_count(va_list args)
 			count += 3;
 		count++;
 	}
+
+	return (count);
+}
+
+
+/**
+ * op_address_count - Count space needed for an address in hexadecimal
+ * @args: Argument to be passed of type unsigned long int
+ *
+ * Return: Space needed
+ */
+unsigned int op_address_count(va_list args)
+{
+	unsigned int count = 2;
+	unsigned long int address;
+
+	address = va_arg(args, unsigned long int);
+
+	count += bigger_count_digits(address, 16);
 
 	return (count);
 }

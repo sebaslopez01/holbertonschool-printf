@@ -62,6 +62,8 @@ void op_hexadecimal_l(char *buffer, va_list args, int *count);
 
 void op_string_s(char *buffer, va_list args, int *count);
 
+void op_address(char *buffer, va_list args, int *count);
+
 unsigned int (*get_op_func_space(char c))(va_list);
 
 unsigned int op_char_count(va_list args);
@@ -80,11 +82,17 @@ unsigned int op_hexadecimal_count(va_list args);
 
 unsigned int op_string_s_count(va_list args);
 
+unsigned int op_address_count(va_list args);
+
 unsigned int count_digits(long int num, int base);
+
+unsigned int bigger_count_digits(unsigned long int num, int base);
 
 char *itoa(long int num, char *buffer, int base);
 
-char *parse_unsigned_number(unsigned int num, char *str, int base);
+char *bigger_itoa(unsigned long int num, char *buffer, int base);
+
+char *parse_unsigned_number(unsigned long int num, char *str, int base);
 
 int _strlen(char *str);
 
