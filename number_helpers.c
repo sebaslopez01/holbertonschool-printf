@@ -25,7 +25,7 @@ unsigned int count_digits(long int num, int base)
 /**
  * bigger_count_digits - Count number of digits of a unsigned long int
  * @num: Number to count
- * @bae: Base to use
+ * @base: Base to use
  *
  * Return: Number of digits
  */

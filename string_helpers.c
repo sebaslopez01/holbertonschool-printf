@@ -25,7 +25,7 @@ void _strcpy(char *dest, char *origin, int *count)
  * _strlen - Count the length of a string
  * @str: String to count
  *
- * Return. Length of str
+ * Return: Length of str
  */
 int _strlen(char *str)
 {
