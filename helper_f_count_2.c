@@ -55,7 +55,7 @@ unsigned int op_string_s_count(va_list args)
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		if ((str[i] < 0 && str[i] < 32) || str[i] >= 127)
+		if ((str[i] > 0 && str[i] < 32) || str[i] >= 127)
 			count += 3;
 		count++;
 	}
