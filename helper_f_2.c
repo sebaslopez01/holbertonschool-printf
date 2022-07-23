@@ -111,9 +111,11 @@ void op_string_s(char *buffer, va_list args, int *count)
 			itoa(str[i], hex_num, 16);
 
 			if (_strlen(hex_num) == 1)
-				buffer[*(count)++] = '0';
+				buffer[(*count)++] = '0';
 
 			_strcpy(buffer, hex_num, count);
+
+			continue;
 		}
 
 		buffer[(*count)++] = str[i];
