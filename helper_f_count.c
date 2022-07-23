@@ -28,7 +28,7 @@ unsigned int op_string_count(va_list args)
 	str = va_arg(args, char *);
 	if (str == NULL)
 		str = "(null)";
-	
+
 	count = _strlen(str);
 
 	return (count);

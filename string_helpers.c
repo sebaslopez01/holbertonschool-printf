@@ -62,7 +62,7 @@ void reverse_string(char *str)
  * string_tolower - Changes all uppercase letters of a string to lowercase
  * @str: String to affect
  *
- * Return: void 
+ * Return: void
  */
 void string_tolower(char *str)
 {

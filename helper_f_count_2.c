@@ -38,7 +38,8 @@ unsigned int op_hexadecimal_count(va_list args)
 
 
 /**
- * op_string_s_count - Count space needed for an string with hexadecimal numbers
+ * op_string_s_count - Count space needed for an string with 
+ * hexadecimal numbers
  * @args: Argument to be passed of type char *
  *
  * Return: Space needed
