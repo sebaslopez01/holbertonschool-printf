@@ -19,6 +19,7 @@ void (*get_op_func(char c))(char *, va_list, int *)
 		{"o", op_octal},
 		{"x", op_hexadecimal_l},
 		{"X", op_hexadecimal},
+		{"S", op_string_s},
 		{NULL, NULL}
 	};
 
@@ -51,6 +52,7 @@ unsigned int (*get_op_func_space(char c))(va_list)
 		{"o", op_octal_count},
 		{"x", op_hexadecimal_count},
 		{"X", op_hexadecimal_count},
+		{"S", op_string_s_count},
 		{NULL, NULL}
 	};
 

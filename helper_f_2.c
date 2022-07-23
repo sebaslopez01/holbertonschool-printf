@@ -82,3 +82,40 @@ void op_hexadecimal_l(char *buffer, va_list args, int *count)
 
 	free(str);
 }
+
+
+/**
+ * op_string_s - Copies an string without its non printable characters
+ * with \x followed byt the ASCII code value in hexadecimal
+ * @buffer: BUffer to copy characters
+ * @args: Arguments of type char * or hexadecimal
+ * @count: Quantity to affect
+ *
+ * Return: void
+ */
+void op_string_s(char *buffer, va_list args, int *count)
+{
+	int i;
+	char *str = NULL, hex_num[3];
+
+	str = va_arg(args, char *);
+	if (str == NULL)
+		str = "(null)";
+
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		if ((str[i] < 0 && str[i] < 32) || str[i] >= 127)
+		{
+			_strcpy(buffer, "\\x", count);
+
+			itoa(str[i], hex_num, 16);
+
+			if (_strlen(hex_num) == 1)
+				buffer[*(count)++] = '0';
+
+			_strcpy(buffer, hex_num, count);
+		}
+
+		buffer[(*count)++] = str[i];
+	}
+}

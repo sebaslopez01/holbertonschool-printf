@@ -35,3 +35,30 @@ unsigned int op_hexadecimal_count(va_list args)
 
 	return (count);
 }
+
+
+/**
+ * op_string_s_count - Count space needed for an string with hexadecimal numbers
+ * @args: Argument to be passed of type char *
+ *
+ * Return: Space needed
+ */
+unsigned int op_string_s_count(va_list args)
+{
+	unsigned int i, count = 0;
+	char *str = NULL;
+
+	str = va_arg(args, char *);
+
+	if (str == NULL)
+		str = "(null)";
+
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		if ((str[i] < 0 && str[i] < 32) || str[i] >= 127)
+			count += 3;
+		count++;
+	}
+
+	return (count);
+}

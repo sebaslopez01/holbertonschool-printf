@@ -60,6 +60,8 @@ void op_hexadecimal(char *buffer, va_list args, int *count);
 
 void op_hexadecimal_l(char *buffer, va_list args, int *count);
 
+void op_string_s(char *buffer, va_list args, int *count);
+
 unsigned int (*get_op_func_space(char c))(va_list);
 
 unsigned int op_char_count(va_list args);
@@ -75,6 +77,8 @@ unsigned int op_unsigned_count(va_list args);
 unsigned int op_octal_count(va_list args);
 
 unsigned int op_hexadecimal_count(va_list args);
+
+unsigned int op_string_s_count(va_list args);
 
 unsigned int count_digits(long int num, int base);
 
