@@ -138,6 +138,12 @@ void op_address(char *buffer, va_list args, int *count)
 
 	address = va_arg(args, unsigned long int);
 
+	if (address == 0)
+	{
+		_strcpy(buffer, "(nil)", count);
+		return;
+	}
+
 	buffer[(*count)++] = '0';
 	buffer[(*count)++] = 'x';
 

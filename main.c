@@ -16,7 +16,7 @@ int main(void)
 
 	printf("Len _printf: %d\n", len);
 
-	_printf("%p\n", (void *)0x7fff5100b608);
+	_printf("%p\n", NULL);
 
 	return (0);
 }

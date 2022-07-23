@@ -77,6 +77,9 @@ unsigned int op_address_count(va_list args)
 
 	address = va_arg(args, unsigned long int);
 
+	if (address == 0)
+		return (5);
+
 	count += bigger_count_digits(address, 16);
 
 	return (count);
