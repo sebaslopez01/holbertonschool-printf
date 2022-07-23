@@ -146,6 +146,8 @@ void op_address(char *buffer, va_list args, int *count)
 	if (!str)
 		return;
 
+	string_tolower(str);
+
 	_strcpy(buffer, str, count);
 
 	free(str);
