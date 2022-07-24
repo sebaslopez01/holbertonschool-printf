@@ -56,5 +56,7 @@ void op_rot13(char *buffer, va_list args, int *count)
 			buffer[(*count)++] = str[i] + 13;
 		else if ((str[i] >= 78 && str[i] <= 90) || (str[i] >= 110 && str[i] <= 122))
 			buffer[(*count)++] = str[i] - 13;
+		else
+			buffer[(*count)++] = str[i];
 	}
 }
