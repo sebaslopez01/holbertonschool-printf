@@ -66,6 +66,8 @@ void op_address(char *buffer, va_list args, int *count);
 
 void op_reverse(char *buffer, va_list args, int *count);
 
+void op_rot13(char *buffer, va_list args, int *count);
+
 unsigned int (*get_op_func_space(char c))(va_list);
 
 unsigned int op_char_count(va_list args);

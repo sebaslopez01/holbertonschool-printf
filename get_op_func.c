@@ -22,6 +22,7 @@ void (*get_op_func(char c))(char *, va_list, int *)
 		{"S", op_string_s},
 		{"p", op_address},
 		{"r", op_reverse},
+		{"R", op_rot13},
 		{NULL, NULL}
 	};
 
@@ -57,6 +58,7 @@ unsigned int (*get_op_func_space(char c))(va_list)
 		{"S", op_string_s_count},
 		{"p", op_address_count},
 		{"r", op_string_count},
+		{"R", op_string_count},
 		{NULL, NULL}
 	};
 
