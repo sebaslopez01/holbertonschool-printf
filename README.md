@@ -18,7 +18,7 @@ The code was compiled like this  ```gcc -Wall -Werror -Wextra -pedantic -std=gnu
 * **_printf_test.c** is a function to count the space needed by the new string and this contains the functions ```count_space```, ```fill_string``` and ```_printf2``` 
 * **itoa.c** This function handles conversion specifiers: ```d``` and ```i```
 
-## Requerements
+## Requirements
 ### General
 * All your files will be compiled on Ubuntu 20.04 LTS using ```gcc```
 using the options ```-Wall -Werror -Wextra -pedantic -std=gnu89```
