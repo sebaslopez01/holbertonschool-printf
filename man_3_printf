@@ -1,12 +1,13 @@
-.\” Manual page for _printf function.
-.TH man _printf "Jul 21, 2022" "_printf man page"
+.TH _printf "Jul 21, 2022" "_printf man page"
+
 .SH NAME
- _printf -- formatted output conversion and print data.
+ .B _printf\fR \- formatted output conversion
+ 
 .SH SYNOPSIS
-.nf
-.BI  #include "main.h"
-.PP
-.BI Prototype: int _printf(const char *format, ...);
+.B  #include \fB"main.h"
+
+.B int _printf(const char *\fIformat\fB, ...);
+
 .PP
 .BI int _printf_helper(const char *format, va_list args, char *buffer);
 .BI unsigned int count_space(const char *format, va_list args);
@@ -23,64 +24,137 @@
 .BI char *itoa(int num, char *buffer, int base);
 .BI void reverse_string(char *str);
 
-.PP
 .SH DESCRIPTION
-.BI _printf()
- Is a function that produces output according to a format using the prototype: int _printf(const char *format, ...).
+The \fB_printf()\fR function writes output to the standard output. According to its parameters passed via variable length argument.
+Through the directives passed on a \fIformat\fR string.
 
-.SS Return Value
-Returning the number of characters printed but excluding the null byte used to end the output to strings, The format string consists of zero or more directives.
+.B Return Value
+.in +2n
+Returns the number of characters printed but excluding the null byte used to end output to strings.
 
-.SS Format String
-The string specifying how subsequent arguments to the output are converted where zero or more are the directives that make up the string format that are compiled into the output, but not the %, is also made up of conversion specifiers, returns 0 or more arguments, in the conversion specifications it is assigned the character % and ending with the conversion specifier.
+If an error happens, -1 is returned.
+
+.in
+.B Format String
+.in +2n
+The format string is a constant characters pointer that specifies how subsequent arguments to the output are converted, composed of zero or more 
+directives that make up the string format that are compiled into the output, but not the \fB%\fR. Is also made up of conversion specifiers, 
+returns 0 or more arguments, in the conversion specifications it is assigned the character \fB%\fR and ending with the conversion specifier.
 
 
-.SS Conversion Specifiers
+.B Conversion Specifiers
+.in +2n
+A character that specifies the type of conversion to be applied.
 The conversion specifiers and their meanings are:
-.TP
-.B c
-.R The \fIint\fR changes to an unsigned character, then the resulting character is written
-   
-.TP
-.B s
-.R On arrival of a const \fIchar*\fR argument, a pointer to a string, all characters are written to each byte, up to the null byte, but that null byte is not included.
-.TP
+
+.RS
 .B d, i
-.R The \fIint\fR argument is converted to signed decimal notation.
-.TP
-.B %
-A '%' is written but no argument is converted. The complete version specification is \fI%%\fR'
-.TP
+.in +2n
+The \fIint\fR argument is converted to signed decimal notation.
+.in
+.RE
+
+.RS
 .B o, u, x
-.R The \fIint\fR argument is converted to base 8 numbers or octal \fIo\fR, base 10 numbers or decimal \fIu\fR, base 16 numbers or hexadecimal \fIx\fR.
-.TP
+.in +2n
+The \fIunsigned int\fR argument is converted to unsigned octal (\fBo\fR), unsigned decimal (\fBu\fR), 
+or unsigned hexadecimal (\fBx\fR and \fBX\fR) notation. 
+The letters \fBabcdef\fR are used for \fBx\fR conversions; the 
+letters \fBABCDEF\fR are used for \fBX\fR conversions.
+.in
+.RE
+
+.RS
 .B b
-The unsigned int argument is converted to binary notation \fIb\fR.
-.TP
-.B p
-Address is printed in hexadecimal.
-.TP
+.in +2n
+The \fIunsigned int\fR argument is converted to binary notation.
+.in
+.RE
+
+.RS
+.B c
+.in +2n
+The \fIint\fR changes to an \fIunsigned char\fR, then the resulting character is written.
+.in
+.RE
+
+.RS
+.B s
+.in +2n
+The \fIconst char *\fR argument is expected to be a pointer to an array of character  type  (pointer  to a string).  
+Characters from the array are written up to (but not including) a terminating null byte ('\\0').
+.in
+.RE
+
+.RS
+.B S
+.in +2n
+Same as \fBs\fR conversion specifier, except that any printable characters 
+(0 < ASCII value < 32 or >= 127) are printed this way: \fB\\x\fR, 
+followed by the ASCII code value in hexadecimal (upper case - always 2 characters).
+.in
+.RE
+
+.RS
 .B r
-Prints a string in reverse.
-.TP
+.in +2n
+Same as \fBs\fR conversion specifies, except that the string is written in
+reverse order.
+.in
+.RE
+
+.RS
 .B R
-Prints a string converted to rot13
+.in +2n
+Same as \fBs\fR conversion specifier, except that the string is converted
+to ROT13 encryption.
+.in
+.RE
+
+.RS
+.B p
+.in +2n
+The \fIvoid *\fR pointer argument is printed in hexadecimal (as if by \fB%#x\fR or \fB%#lx\fR).
+.in
+.RE
+
+.RS
+.B %
+.in +2n
+A '%' is written.  No argument is converted.  The complete conversion specification is '%%'.
+.in
+.RE
+
+.SH BUGS
+Code such as \fBprintf(\fIfoo\fB);\fR often indicates a bug, since \fIfoo\fR may contain a % character.
 
 .SH NOTES
-.R This _printf project is a project emulating the printf function in C, by students Sebastián López and Alexander Ayala from Holberton School cohort 18. 
+This _printf project is a project emulating the printf function in C, by students Sebastián López and Alexander Ayala from Holberton School cohort 18. 
 
 .SH EXAMPLE
-.R To print the the string and its length in decimal.
+To print a string and a number, and its length in decimal.
 
-        int length;
-        length = _printf("%s", "Hello World, 1, %, Holberton")
-        _printf("contains %d characters", length);
+.RS
+#include "main.h"
+
+int main(void)
+{
+        int len, num = 20;
+        char *str = "Hello World!";
+        
+        len = _printf("%s %d\\n", str, num);
+        
+        _printf("Contains %d characters\\n", len);
+        
         return (0);
+}
+.RE
 
 .SH SEE ALSO
-.R printf(3)
+printf(3)
 .PP
 Full documentation at: <https://www.gnu.org/software/coreutils/printf> or available locally via: info '(coreutils) printf invocation'
+
 .SH AUTHORS
 .B Sebastián López
 .B Alexander Ayala
