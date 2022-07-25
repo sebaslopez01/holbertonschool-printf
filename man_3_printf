@@ -141,4 +141,5 @@ Full documentation at: <https://www.gnu.org/software/coreutils/printf> or availa
 
 .SH AUTHORS
 .B Sebastián López
+.in
 .B Alexander Ayala
