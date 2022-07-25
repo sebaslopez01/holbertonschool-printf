@@ -10,7 +10,7 @@ The options ```-Wall -Werror -Wextra -pedantic -std=gnu89```
 
 ## Compilation 
 The code was compiled like this  ```gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c```
-## File Descripotions
+## File Descriptions
 * **main.h** contains ```math.h```, ```stdlib.h```, ```string.h```, ```stdarg.h```, ```unistd.h``` libraries with their respective prototypes used in the function ```_printf```
 * **_printf** is a function that produces output according to a format using the prototype: ```int _printf(const char *format, ...);``` returning the number of characters printed but excluding the null byte used to end the output to strings, The format string consists of zero or more directives
 * **get_op_func.c** is a function to compare if a character is in the structure ```format_t```
