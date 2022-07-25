@@ -49,7 +49,7 @@ using the options ```-Wall -Werror -Wextra -pedantic -std=gnu89```
 #### String
  * Intput: ```_printf("String:[%s]\n", "I am a string !");```
  * Output: ```String:[I am a string !]```
-## Testings
+## Testing
 
 
 ## Task
