@@ -3,7 +3,7 @@
 This ```_printf``` is the development of a function that produces an output according to a format provided by .B Holberton School\fB, applying the fundamentals acquired in C language, in order to perform something similar to the C printf function
 ## Prototype
  ```int _printf(const char *format, ...);```
-## Instalation
+## Installation
 All your files will be compiled on Ubuntu 20.04 LTS using ```gcc```
 ### using
 The options ```-Wall -Werror -Wextra -pedantic -std=gnu89```
