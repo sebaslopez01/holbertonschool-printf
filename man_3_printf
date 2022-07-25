@@ -1,28 +1,12 @@
 .TH _printf "Jul 21, 2022" "_printf man page"
 
 .SH NAME
- .B _printf\fR \- formatted output conversion
+.B _printf\fR \- formatted output conversion
  
 .SH SYNOPSIS
 .B  #include \fB"main.h"
 
 .B int _printf(const char *\fIformat\fB, ...);
-
-.PP
-.BI int _printf_helper(const char *format, va_list args, char *buffer);
-.BI unsigned int count_space(const char *format, va_list args);
-.BI void (*get_op_func(char c))(char *, va_list, int *);
-.BI void op_string(char *buffer, va_list args, int *count);
-.BI void op_char(char *buffer, va_list args, int *count);
-.BI void op_number(char *buffer, va_list args, int *count);
-.BI void op_binary(char *buffer, va_list args, int *count);
-.BI unsigned int (*get_op_func_space(char c))(va_list);
-.BI unsigned int op_char_count(va_list args);
-.BI unsigned int op_string_count(va_list args);
-.BI unsigned int op_number_count(va_list args);
-.BI unsigned int op_binary_count(va_list args);
-.BI char *itoa(int num, char *buffer, int base);
-.BI void reverse_string(char *str);
 
 .SH DESCRIPTION
 The \fB_printf()\fR function writes output to the standard output. According to its parameters passed via variable length argument.
