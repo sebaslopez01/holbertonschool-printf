@@ -74,7 +74,7 @@ using the options ```-Wall -Werror -Wextra -pedantic -std=gnu89```
 15. Handle the custom conversion specifier ```R``` that prints the rot13'ed string.
 16. All above options should work well together.
 
-**Diagram of execution**
+### Diagram of execution
 ![Image text](https://github.com/sebaslopez01/holbertonschool-printf/blob/main/Diagrama_de_flujo_printf.png)
 
 ## Authors:
