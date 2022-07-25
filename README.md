@@ -1,4 +1,4 @@
-# Holberton School -printf
+# Holberton School - printf project
 ## Description
 This ```_printf``` is the development of a function that produces an output according to a format provided by .B Holberton School\fB, applying the fundamentals acquired in C language, in order to perform something similar to the C printf function
 ## Prototype
@@ -74,7 +74,7 @@ using the options ```-Wall -Werror -Wextra -pedantic -std=gnu89```
 15. Handle the custom conversion specifier ```R``` that prints the rot13'ed string.
 16. All above options should work well together.
 
-###Diagram of execution
+**Diagram of execution**
 ![Image text](https://github.com/sebaslopez01/holbertonschool-printf/blob/main/Diagrama_de_flujo_printf.png)
 
 ## Authors:
